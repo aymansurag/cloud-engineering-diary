@@ -31,7 +31,7 @@ I checked the bucket's versioning configuration:
 
 ```bash
 aws s3api get-bucket-versioning \
-  --bucket <YOUR_BUCKET_NAME> \
+  --bucket aymen-s3-learning-2026-133775960371 \
   --profile aws-learning
 ```
 
@@ -51,7 +51,7 @@ I uploaded it to S3:
 
 ```bash
 aws s3 cp version-test.txt \
-  s3://<YOUR_BUCKET_NAME>/practice/version-test.txt \
+  s3://aymen-s3-learning-2026-133775960371/practice/version-test.txt \
   --profile aws-learning
 ```
 
@@ -59,7 +59,7 @@ I inspected the object metadata:
 
 ```bash
 aws s3api head-object \
-  --bucket <YOUR_BUCKET_NAME> \
+  --bucket aymen-s3-learning-2026-133775960371 \
   --key practice/version-test.txt \
   --profile aws-learning
 ```
@@ -80,7 +80,7 @@ I uploaded it to the same S3 key:
 
 ```bash
 aws s3 cp version-test.txt \
-  s3://<YOUR_BUCKET_NAME>/practice/version-test.txt \
+  s3://aymen-s3-learning-2026-133775960371/practice/version-test.txt \
   --profile aws-learning
 ```
 
@@ -90,7 +90,7 @@ I then listed the version history:
 
 ```bash
 aws s3api list-object-versions \
-  --bucket <YOUR_BUCKET_NAME> \
+  --bucket aymen-s3-learning-2026-133775960371 \
   --prefix practice/version-test.txt \
   --profile aws-learning
 ```
@@ -105,9 +105,9 @@ I used `get-object` with Version 1's version ID to download the older contents w
 
 ```bash
 aws s3api get-object \
-  --bucket <YOUR_BUCKET_NAME> \
+  --bucket aymen-s3-learning-2026-133775960371 \
   --key practice/version-test.txt \
-  --version-id <VERSION_1_ID> \
+  --version-id hYTqXDPE2Us9wQe9MwV1aXq4ocTIavOw \
   --profile aws-learning \
   version1-retrieved.txt
 ```
@@ -132,7 +132,7 @@ I performed a normal delete on the practice object:
 
 ```bash
 aws s3 rm \
-  s3://<YOUR_BUCKET_NAME>/practice/version-test.txt \
+  s3://aymen-s3-learning-2026-133775960371/practice/version-test.txt \
   --profile aws-learning
 ```
 
@@ -140,7 +140,7 @@ I listed the object versions:
 
 ```bash
 aws s3api list-object-versions \
-  --bucket <YOUR_BUCKET_NAME> \
+  --bucket aymen-s3-learning-2026-133775960371 \
   --prefix practice/version-test.txt \
   --profile aws-learning
 ```
@@ -159,9 +159,9 @@ I identified the exact delete marker's version ID and removed only that marker:
 
 ```bash
 aws s3api delete-object \
-  --bucket <YOUR_BUCKET_NAME> \
+  --bucket aymen-s3-learning-2026-133775960371 \
   --key practice/version-test.txt \
-  --version-id <DELETE_MARKER_ID> \
+  --version-id OhtzyQvULTiVScW0I0TSwwd_JQFQgbsh \
   --profile aws-learning
 ```
 
@@ -169,7 +169,7 @@ I then verified that the object was visible again:
 
 ```bash
 aws s3 ls \
-  s3://<YOUR_BUCKET_NAME>/practice/ \
+  s3://aymen-s3-learning-2026-133775960371/practice/ \
   --profile aws-learning
 ```
 
