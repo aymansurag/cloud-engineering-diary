@@ -1,0 +1,12 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyReadPracticeObjectForLesson3",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::aymen-s3-learning-2026-133775960371/practice/version-test.txt"
+    }
+  ]
+}
